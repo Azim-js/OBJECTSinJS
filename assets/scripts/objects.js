@@ -42,3 +42,11 @@ const personData={
 
 console.log(personData['first name']);
 console.log(personData.age);
+
+// working example with node
+
+const movieList=document.getElementById("movie-list");
+movieList.style['background-color']="red";
+// or
+// movieList.style.backgroundColor="red";
+movieList.style.display="block";
