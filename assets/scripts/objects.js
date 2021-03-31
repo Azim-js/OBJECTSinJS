@@ -37,11 +37,13 @@ console.log(person);
 const personData={
     'first name':'Mohammed',
     'last name':'Azim',
-    age:21
+    age:21,
+    1:"hello"
 };
-
+// order of property is sorted in number typr property
 console.log(personData['first name']);
 console.log(personData.age);
+console.log(perosnData[1]);
 
 // working example with node
 
