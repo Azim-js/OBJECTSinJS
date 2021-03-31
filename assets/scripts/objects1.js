@@ -17,7 +17,15 @@ const renderMovies=()=>{
     
     movies.forEach((movie)=>{
         const movieEl=document.createElement('li');
-        movieEl.textContent=movie.info.title  //which will be added as <li> text contet </li>
+//         movieEl.textContent=movie.info.title+"-"+movie.info[extraName];   //throws an error due   //which will be added as <li> text contet </li>
+//         sollution
+        let text=movie.info+"-";
+        for(const key in movie.info){
+            if(key!=='title') //accessing the other property
+            {
+                text=text+`${key}:${movie.info[key]}`;
+            }
+        movieEl.textContent=text;
         movieList.append(movieEl);
     });
     
