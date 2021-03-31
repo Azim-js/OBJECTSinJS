@@ -31,3 +31,14 @@ delete person.age; //best way to free the property
 // person.age=undefined //not recommended 
 
 console.log(person);
+
+// different types of properties 
+
+const personData={
+    'first name':'Mohammed',
+    'last name':'Azim',
+    age:21
+};
+
+console.log(personData['first name']);
+console.log(personData.age);
