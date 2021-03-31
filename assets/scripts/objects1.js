@@ -4,6 +4,24 @@ const addMovieBtn=document.getElementById("add-movie-btn");
 const searchBtn=document.getElementById("search-btn");
 const movies=[];
 
+const renderMovies=()=>{
+    const movieList=document.getElementById('movie-list');
+    
+    if(movies.length===0){
+        movieList.ClassList.remove('visible');
+    }
+    else{
+        movieList.ClassList.add('visible');
+    }
+    movieList.innerHTML='';
+    
+    movies.forEach((movie)=>{
+        const movieEl=document.createElement('li');
+        movieEl.textContent=movie.info.title  //which will be added as <li> text contet </li>
+        movieList.append(movieEl);
+    });
+    
+};
 
 const addMovieHandler=()=>{
     const title=document.getElementById("title").value;
@@ -25,6 +43,7 @@ const addMovieHandler=()=>{
    movies.push(addMovies);
    console.log(addMovies);
    console.log(movies.length);
+   renderMovies(); //to render or display the movies of the database
 };
 
 
