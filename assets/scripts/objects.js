@@ -52,3 +52,22 @@ movieList.style['background-color']="red";
 // or
 // movieList.style.backgroundColor="red";
 movieList.style.display="block";
+
+// dynamically access by []
+
+const keyname='first name';
+// console.log(personData.keyname);
+// by []
+console.log(personData[keyname])
+
+// dynamic feature is 
+const userChosenOne='level';
+
+let person1={
+    'first name':'Mohammed',
+    'last name':'Azim',
+    age:21,
+    [userChosenOne]:"...",
+    1:"hello"
+
+}
