@@ -4,7 +4,7 @@ const addMovieBtn=document.getElementById("add-movie-btn");
 const searchBtn=document.getElementById("search-btn");
 const movies=[];
 
-const renderMovies=()=>{
+const renderMovies=(filter='')=>{ //to check for title is searched to display the searched list
     const movieList=document.getElementById('movie-list');
     
     if(movies.length===0){
@@ -15,7 +15,9 @@ const renderMovies=()=>{
     }
     movieList.innerHTML='';
     
-    movies.forEach((movie)=>{
+    const filteredMovies=!filter? movies : movies.filter((movie)=>movie.info.title.includes(filter)); //to filter search results using .filter() and terneary operator
+    
+    filteredMovies.forEach((movie)=>{
         const movieEl=document.createElement('li');
 //         movieEl.textContent=movie.info.title+"-"+movie.info[extraName];   //throws an error due   //which will be added as <li> text contet </li>
 //         sollution
@@ -53,6 +55,13 @@ const addMovieHandler=()=>{
    console.log(movies.length);
    renderMovies(); //to render or display the movies of the database
 };
+    
+const searchMovieHandler=()=>{
+    const filterTerm=document.getElementById("filter-title").value;
+    console.log(filterTerm);
+    renderMovies(filterTerm);
+};
 
 
 addMovieBtn.addEventListener('click',addMovieHandler);
+searchBtn.addEventListener('click',searchMovieHandler);  
