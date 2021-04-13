@@ -25,7 +25,9 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
         const {info,...otherProp}=movie;
         console.log(otherProp);
 //         let text=movie.info.title+"-";
-        let text=info.title+"-";
+//         object Destructing and assigning new variable for key value in the object
+        const {title:movieTitle}=info;
+        let text=movieTitle+"-";
         for(const key in movie.info){
             if(key!=='title') //accessing the other property
             {
