@@ -71,3 +71,18 @@ let person1={
     1:"hello"
 
 }
+
+// THe Object Spread Operator {...}
+
+const person2={
+    name:'Azim',
+    age:18,
+    hobbies:['Sports','cooking']
+};
+
+console.log(person2);
+
+const person3={...person,age:21,hobbies:[...person2.hobbies]}; //making new object with overwritting and new refrence
+
+console.log(person3);
+console.log(person2);
