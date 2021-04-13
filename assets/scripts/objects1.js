@@ -92,7 +92,8 @@ const addMovieHandler=()=>{
    renderMovies(); //to render or display the movies of the database
 };
     
-const searchMovieHandler=()=>{
+const searchMovieHandler=function(){
+    console.log(this);
     const filterTerm=document.getElementById("filter-title").value;
     console.log(filterTerm);
     renderMovies(filterTerm);
