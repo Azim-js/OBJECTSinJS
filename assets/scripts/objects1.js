@@ -50,7 +50,7 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
         getFormattedTitle=getFormattedTitle.bind(movie);
         let text=getFormattedTitle()+"-";
         for(const key in movie.info){
-            if(key!=='title') //accessing the other property
+            if(key!=='title' && key!='_title') //accessing the other property
             {
 //                 text=text+`${key}:${movie.info[key]}`;
                 text=text+`${key}:${info[key]}`;
@@ -66,14 +66,23 @@ const addMovieHandler=()=>{
     const extraName=document.getElementById("extra-name").value;
     const extraValue=document.getElementById("extra-value").value;
 
-    if(title.trim()==""|| extraName.trim()=="" || extraValue.trim()==""){
+    if( extraName.trim()=="" || extraValue.trim()==""){
         alert("please fill the details!!");
         return;
     }
 
     const addMovies={
         info:{
-            title,
+            set title(val){
+                if(val.trim()===''){
+                    this._title=val;
+                    return;
+                }
+                this._title=val;
+            },
+            get title(){
+                return this._title;
+            }
             [extraName]:extraValue
         },
         id:Math.random().toString(),
@@ -86,6 +95,10 @@ const addMovieHandler=()=>{
             return(this.info.title.toUpperCase());
         }
     };
+   //using the set and get ()
+   addMovies.info.title=title;
+   //using the get()
+   console.log(addMovies.info.title);     
    movies.push(addMovies);
    console.log(addMovies);
    console.log(movies.length);
