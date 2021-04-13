@@ -96,3 +96,16 @@ const newPerson=Object.assign({},guy);
 guy.name="Mohammed Azim";
 console.log(guy);
 console.log(newPerson);
+
+// this and Arrow => ()
+
+const members={
+    teamName:"Blue Rockets",
+    people:['Azim','ummar'],
+    getTeamMember(){
+        this.people.forEach(p=>
+            console.log(p+"-"+this.teamName));
+    }
+};
+
+members.getTeamMember();
