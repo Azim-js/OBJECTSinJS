@@ -19,6 +19,11 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
     
     filteredMovies.forEach((movie)=>{
         const movieEl=document.createElement('li');
+        
+        //checking if the object property exists in the object using 'in' keyword
+        if('info' in movie){
+            console.log('hi');
+        }
 //         movieEl.textContent=movie.info.title+"-"+movie.info[extraName];   //throws an error due   //which will be added as <li> text contet </li>
 //         sollution
 //         Object Destructing
