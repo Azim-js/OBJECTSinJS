@@ -21,11 +21,16 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
         const movieEl=document.createElement('li');
 //         movieEl.textContent=movie.info.title+"-"+movie.info[extraName];   //throws an error due   //which will be added as <li> text contet </li>
 //         sollution
-        let text=movie.info+"-";
+//         Object Destructing
+        const {info,...otherProp}=movie;
+        console.log(otherProp);
+//         let text=movie.info.title+"-";
+        let text=info.title+"-";
         for(const key in movie.info){
             if(key!=='title') //accessing the other property
             {
-                text=text+`${key}:${movie.info[key]}`;
+//                 text=text+`${key}:${movie.info[key]}`;
+                text=text+`${key}:${info[key]}`;
             }
         movieEl.textContent=text;
         movieList.append(movieEl);
