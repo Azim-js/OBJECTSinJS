@@ -35,7 +35,11 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
 //         let text=movieTitle+"-";
 //         let text=getFormattedTitle()+"-";
         
-        let text=movie.getFormattedTitle()+"-";
+//         let text=movie.getFormattedTitle()+"-";
+        //using .bind() to use this keyword to get the method of the object while detructing it 
+        let {getFormattedTitle}=movie;
+        getFormattedTitle=getFormattedTitle.bind(movie);
+        let text=getFormattedTitle()+"-";
         for(const key in movie.info){
             if(key!=='title') //accessing the other property
             {
