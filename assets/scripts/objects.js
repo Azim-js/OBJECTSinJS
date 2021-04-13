@@ -86,3 +86,13 @@ const person3={...person,age:21,hobbies:[...person2.hobbies]}; //making new obje
 
 console.log(person3);
 console.log(person2);
+
+//  CREATING NEW OBGECT WITH Object.assign({},object);
+
+const guy={name:"Azim"};
+
+const newPerson=Object.assign({},guy);
+
+guy.name="Mohammed Azim";
+console.log(guy);
+console.log(newPerson);
