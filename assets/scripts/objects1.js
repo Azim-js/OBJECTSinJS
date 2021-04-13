@@ -27,6 +27,8 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
 //         movieEl.textContent=movie.info.title+"-"+movie.info[extraName];   //throws an error due   //which will be added as <li> text contet </li>
 //         sollution
 //         Object Destructing
+        
+        
         const {info,...otherProp}=movie;
         console.log(otherProp);
 //         let text=movie.info.title+"-";
@@ -35,9 +37,16 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
 //         let text=movieTitle+"-";
 //         let text=getFormattedTitle()+"-";
         
+        
+        
 //         let text=movie.getFormattedTitle()+"-";
         //using .bind() to use this keyword to get the method of the object while detructing it 
         let {getFormattedTitle}=movie;
+        
+        // using call(,,,,) and apply(,[]) similar to bind
+        // getFormattedTitle=getFormattedTitle.call(movie);
+        // getFormattedTitle=getFormattedTitle.apply(movie);
+        
         getFormattedTitle=getFormattedTitle.bind(movie);
         let text=getFormattedTitle()+"-";
         for(const key in movie.info){
