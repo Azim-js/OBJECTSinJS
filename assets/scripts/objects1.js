@@ -32,7 +32,10 @@ const renderMovies=(filter='')=>{ //to check for title is searched to display th
 //         let text=movie.info.title+"-";
 //         object Destructing and assigning new variable for key value in the object
         const {title:movieTitle}=info;
-        let text=movieTitle+"-";
+//         let text=movieTitle+"-";
+//         let text=getFormattedTitle()+"-";
+        
+        let text=movie.getFormattedTitle()+"-";
         for(const key in movie.info){
             if(key!=='title') //accessing the other property
             {
@@ -60,7 +63,11 @@ const addMovieHandler=()=>{
             title,
             [extraName]:extraValue
         },
-        id:Math.random().toString()
+        id:Math.random().toString(),
+//         using this key word to acsses the object prop
+        getFormattedTitle:function(){
+            return(this.info.title.toUpperCase());
+        }
     };
    movies.push(addMovies);
    console.log(addMovies);
