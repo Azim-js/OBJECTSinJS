@@ -65,7 +65,11 @@ const addMovieHandler=()=>{
         },
         id:Math.random().toString(),
 //         using this key word to acsses the object prop
-        getFormattedTitle:function(){
+//         getFormattedTitle:function(){
+//             return(this.info.title.toUpperCase());
+//         }
+//         adding a method to an object using shorthand
+        getFormattedTitle(){
             return(this.info.title.toUpperCase());
         }
     };
